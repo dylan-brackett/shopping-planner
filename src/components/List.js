@@ -1,7 +1,18 @@
-import React from "react"
+import React, { useState } from "react";
+import Item from "./Item";
 
-export default function Header() {
-    return (
-        <div />
-    );
+export default function List({ listItems }) {
+  return (
+    <div>
+      {listItems.map((item) => {
+        return (
+          <Item
+            title={item.title}
+            price={item.price}
+            quantity={item.quantity}
+          />
+        );
+      })}
+    </div>
+  );
 }
