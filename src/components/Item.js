@@ -1,10 +1,23 @@
 import React from "react";
 
-export default function Item({ title, price, quantity, completed }) {
+export default function Item({
+  title,
+  price,
+  quantity,
+  completed,
+  id,
+  toggleItemComplete,
+}) {
   return (
-    <div className="flex ">
+    <div id={id} className={`flex ${completed ? "itemCompleted" : ""}`}>
       <div className="w-10 flex justify-center items-center">
-        <input defaultChecked={completed} type="checkbox"></input>
+        <input
+          onChange={() => {
+            toggleItemComplete(id);
+          }}
+          checked={completed}
+          type="checkbox"
+        ></input>
       </div>
       <div className="w-4/5">
         {title}

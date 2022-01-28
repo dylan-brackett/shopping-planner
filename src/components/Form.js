@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 
 export default function Form({ addItem }) {
   const [price, setPrice] = useState();
@@ -23,7 +24,7 @@ export default function Form({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            for="inline-full-name"
+            htmlFor="inline-full-name"
           >
             Item Name
           </label>
@@ -43,7 +44,7 @@ export default function Form({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            for="inline-password"
+            htmlFor="inline-password"
           >
             Qty
           </label>
@@ -63,7 +64,7 @@ export default function Form({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            for="inline-password"
+            htmlFor="inline-password"
           >
             Price ($)
           </label>
@@ -88,7 +89,9 @@ export default function Form({ addItem }) {
             className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
-              addItem(itemName, "$" + price, qty);
+              const myId = nanoid();
+              console.log(myId);
+              addItem(itemName, "$" + price, qty, false, myId);
               setItemName("");
               setPrice("");
               setQty("");
