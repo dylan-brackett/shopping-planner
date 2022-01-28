@@ -10,6 +10,7 @@ export default function List({ listItems }) {
             title={item.title}
             price={item.price}
             quantity={item.quantity}
+            completed={item.completed}
           />
         );
       })}
