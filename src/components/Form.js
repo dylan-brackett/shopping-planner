@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
 export default function Form({ addItem }) {
-  const [price, setPrice] = useState();
-  const [qty, setQty] = useState();
-  const [itemName, setItemName] = useState();
+  const [price, setPrice] = useState("");
+  const [qty, setQty] = useState("");
+  const [itemName, setItemName] = useState("");
 
   function onPriceChange(e) {
     setPrice(e.target.value);
