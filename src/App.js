@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import List from "./components/List";
-import Form from "./components/Form";
+import AddItemForm from "./components/AddItemForm";
 import Modal from "react-modal";
 
 Modal.setAppElement(".app");
@@ -50,13 +50,20 @@ function App() {
     <div className="app bg-gradient-to-b from-green-500 to-green-300 h-screen">
       <Header />
       <div className="max-w-xl mx-auto bg-white my-8 rounded-lg p-10 shadow-xl">
-        <Form addItem={addItem} />
+        <AddItemForm addItem={addItem} />
         <List
           listItems={listItems}
           toggleItemComplete={toggleItemComplete}
           deleteItem={deleteItem}
         />
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={toggleEditModal}
+        contentLabel="Edit Item"
+      >
+        <AddItemForm />
+      </Modal>
     </div>
   );
 }
