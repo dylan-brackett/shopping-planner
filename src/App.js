@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import List from "./components/List";
 import Form from "./components/Form";
-import { list } from "postcss";
+import Modal from "react-modal";
+
+Modal.setAppElement(".app");
 
 function App() {
   const [listItems, setListItems] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function addItem(itemTitle, itemPrice, itemQuantity, itemCompleted, itemId) {
     const newItem = {
@@ -37,6 +40,10 @@ function App() {
       return true;
     });
     setListItems(updatedList);
+  }
+
+  function toggleEditModal(itemId) {
+    setModalIsOpen(!modalIsOpen);
   }
 
   return (
