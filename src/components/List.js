@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Item from "./Item";
 
-export default function List({ listItems, toggleItemComplete }) {
+export default function List({ listItems, toggleItemComplete, deleteItem }) {
   return (
     <div>
       {listItems.map((item) => {
@@ -14,6 +14,7 @@ export default function List({ listItems, toggleItemComplete }) {
             id={item.id}
             key={item.id}
             toggleItemComplete={toggleItemComplete}
+            deleteItem={deleteItem}
           />
         );
       })}

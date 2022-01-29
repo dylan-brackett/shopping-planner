@@ -29,12 +29,26 @@ function App() {
     setListItems(updatedList);
   }
 
+  function deleteItem(id) {
+    const updatedList = listItems.filter((item) => {
+      if (item.id === id) {
+        return false;
+      }
+      return true;
+    });
+    setListItems(updatedList);
+  }
+
   return (
     <div className="app bg-gradient-to-b from-green-500 to-green-300 h-screen">
       <Header />
       <div className="max-w-xl mx-auto bg-white my-8 rounded-lg p-10 shadow-xl">
         <Form addItem={addItem} />
-        <List listItems={listItems} toggleItemComplete={toggleItemComplete} />
+        <List
+          listItems={listItems}
+          toggleItemComplete={toggleItemComplete}
+          deleteItem={deleteItem}
+        />
       </div>
     </div>
   );
