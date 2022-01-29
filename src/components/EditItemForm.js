@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
-export default function AddItemForm({ addItem }) {
-  const [price, setPrice] = useState("");
-  const [qty, setQty] = useState("");
-  const [itemName, setItemName] = useState("");
+export default function EditItemForm({
+  editItem,
+  itemTitle,
+  itemPrice,
+  itemQuantity,
+  itemCompleted,
+  itemId,
+}) {
+  const [price, setPrice] = useState(itemPrice);
+  const [qty, setQty] = useState(itemQuantity);
+  const [itemName, setItemName] = useState(itemTitle);
 
   function onPriceChange(e) {
     setPrice(e.target.value);
@@ -24,7 +31,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            htmlFor="inline-full-name"
+            htmlFor="item-name"
           >
             Item Name
           </label>
@@ -32,7 +39,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-2/3">
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            id="inline-full-name"
+            id="item-name"
             type="text"
             value={itemName}
             onChange={onItemNameChange}
@@ -44,7 +51,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            htmlFor="inline-password"
+            htmlFor="qty"
           >
             Qty
           </label>
@@ -52,7 +59,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3">
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            id="inline-password"
+            id="qty"
             type="number"
             value={qty}
             onChange={onQtyChange}
@@ -64,7 +71,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            htmlFor="inline-password"
+            htmlFor="price"
           >
             Price ($)
           </label>
@@ -72,7 +79,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3">
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-            id="inline-password"
+            id="price"
             value={price}
             onChange={onPriceChange}
             type="number"
@@ -91,7 +98,7 @@ export default function AddItemForm({ addItem }) {
             onClick={() => {
               const myId = nanoid();
               console.log(myId);
-              addItem(itemName, "$" + price, qty, false, myId);
+              editItem(itemName, "$" + price, qty, false, myId);
               setItemName("");
               setPrice("");
               setQty("");

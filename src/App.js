@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import List from "./components/List";
 import AddItemForm from "./components/AddItemForm";
+import EditItemForm from "./components/EditItemForm";
 import Modal from "react-modal";
 
 Modal.setAppElement(".app");
@@ -32,12 +33,24 @@ function App() {
     setListItems(updatedList);
   }
 
-  function deleteItem(id) {
+  function deleteItem(itemId) {
     const updatedList = listItems.filter((item) => {
-      if (item.id === id) {
+      if (item.id === itemId) {
         return false;
       }
       return true;
+    });
+    setListItems(updatedList);
+  }
+
+  function editItem(itemTitle, itemPrice, itemQuantity, itemCompleted, itemId) {
+    const updatedList = listItems.map((item) => {
+      if (item.id === itemId) {
+        item.title = itemTitle;
+        item.price = itemPrice;
+        item.quantity = itemQuantity;
+        item.completed = itemCompleted;
+      }
     });
     setListItems(updatedList);
   }
@@ -62,7 +75,7 @@ function App() {
         onRequestClose={toggleEditModal}
         contentLabel="Edit Item"
       >
-        <AddItemForm />
+        <EditItemForm editItem={editItem} />
       </Modal>
     </div>
   );
