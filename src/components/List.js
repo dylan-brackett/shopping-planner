@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Item from "./Item";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 export default function List({
   listItems,
   toggleItemComplete,
   deleteItem,
-  editItem,
   toggleEditModal,
   setActiveItemId,
 }) {
@@ -13,18 +14,47 @@ export default function List({
     <div>
       {listItems.map((item) => {
         return (
-          <Item
-            title={item.title}
-            price={item.price}
-            quantity={item.quantity}
-            completed={item.completed}
+          <div
             id={item.id}
-            key={item.id}
-            toggleItemComplete={toggleItemComplete}
-            deleteItem={deleteItem}
-            toggleEditModal={toggleEditModal}
-            setActiveItemId={setActiveItemId}
-          />
+            className={`flex justify-center items-center gap-3 p-4 border-b-2 border-slate-700 ${
+              item.completed ? "itemCompleted bg-slate-200" : ""
+            }`}
+          >
+            <div className=" flex justify-center items-center">
+              <input
+                className="h-6 w-6"
+                onChange={() => {
+                  toggleItemComplete(item.id);
+                }}
+                checked={item.completed}
+                type="checkbox"
+              ></input>
+            </div>
+            <div className="flex-1">
+              {item.title}
+              <div className="text-slate-700">Qty: {item.quantity}</div>
+            </div>
+            <div className="text-2xl font-semibold mx-3">${item.price}</div>
+            <div>
+              <button
+                onClick={() => {
+                  toggleEditModal();
+                  setActiveItemId(item.id);
+                }}
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  deleteItem(item.id);
+                }}
+              >
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+            </div>
+          </div>
         );
       })}
     </div>

@@ -15,7 +15,6 @@ This app was built using React and Tailwind CSS.
 
 ## Known Issues
 - Form inputs are not validated for empty strings yet
-- Some components need refactoring for greater clarity
 - Testing is still in the works
 
 ## Possible Future Features

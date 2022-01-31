@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 
 export default function EditItemForm({
   editItem,
+  toggleEditModal,
   itemTitle,
   itemPrice,
   itemQuantity,
@@ -100,6 +101,7 @@ export default function EditItemForm({
               setItemName("");
               setPrice("");
               setQty("");
+              toggleEditModal();
             }}
           >
             Update Item
