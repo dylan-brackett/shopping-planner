@@ -38,7 +38,7 @@ export default function EditItemForm({
         </div>
         <div className="md:w-2/3">
           <input
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="item-name"
             type="text"
             value={itemName}
@@ -58,7 +58,7 @@ export default function EditItemForm({
         </div>
         <div className="md:w-1/3">
           <input
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="qty"
             type="number"
             value={qty}
@@ -78,7 +78,7 @@ export default function EditItemForm({
         </div>
         <div className="md:w-1/3">
           <input
-            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="price"
             value={price}
             onChange={onPriceChange}
@@ -93,10 +93,10 @@ export default function EditItemForm({
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-green-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
-              editItem(itemName, "$" + price, qty, false, itemId);
+              editItem(itemName, price, qty, false, itemId);
               setItemName("");
               setPrice("");
               setQty("");

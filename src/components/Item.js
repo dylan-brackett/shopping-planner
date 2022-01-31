@@ -17,12 +17,13 @@ export default function Item({
   return (
     <div
       id={id}
-      className={`flex justify-center items-center gap-3 ${
-        completed ? "itemCompleted" : ""
+      className={`flex justify-center items-center gap-3 p-4 border-b-2 border-slate-700 ${
+        completed ? "itemCompleted bg-slate-200" : ""
       }`}
     >
       <div className=" flex justify-center items-center">
         <input
+          className="h-6 w-6"
           onChange={() => {
             toggleItemComplete(id);
           }}
@@ -32,9 +33,9 @@ export default function Item({
       </div>
       <div className="flex-1">
         {title}
-        <div className="">Qty: {quantity}</div>
+        <div className="text-slate-700">Qty: {quantity}</div>
       </div>
-      <div className="my-auto">{price}</div>
+      <div className="text-2xl font-semibold mx-3">${price}</div>
       <div>
         <button
           onClick={() => {

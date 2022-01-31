@@ -9,7 +9,7 @@ Modal.setAppElement("#root");
 
 function App() {
   const [listItems, setListItems] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeItemId, setActiveItemId] = useState("");
 
   function addItem(itemTitle, itemPrice, itemQuantity, itemCompleted, itemId) {
@@ -69,6 +69,7 @@ function App() {
       <Header />
       <div className="max-w-xl mx-auto bg-white my-8 rounded-lg p-10 shadow-xl">
         <AddItemForm addItem={addItem} />
+        <div className="border-b-4 border-slate-800 my-8" />
         <List
           listItems={listItems}
           toggleItemComplete={toggleItemComplete}
