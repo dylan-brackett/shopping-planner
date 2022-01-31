@@ -1,13 +1,10 @@
 # shopping-planner
----
-
 This app helps you to plan your shopping trips so that you can track all the items you need to get on your next trip out to the store.
 With this app you can plan out the items you need to get, how much they cost, and how many. Never forget milk at the store again!
 
 This app was built using React and Tailwind CSS.
 
 ## Features
----
 - Add items to your shopping list, including the quantity and the price of the item
 - Delete items
 - Edit the value of items
