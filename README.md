@@ -1,25 +1,39 @@
 # shopping-planner
+---
 
 This app helps you to plan your shopping trips so that you can track all the items you need to get on your next trip out to the store.
-With this app you can plan out the items you need to get, how much they cost, where you need to get it, and how many.
+With this app you can plan out the items you need to get, how much they cost, and how many. Never forget milk at the store again!
 
-Never forget milk at the store again!
+This app was built using React and Tailwind CSS.
 
-## Running
+## Features
+---
+- Add items to your shopping list, including the quantity and the price of the item
+- Delete items
+- Edit the value of items
+- Responsive, so this website will run on both desktop and mobile
+
+## Known Issues
+- Form inputs are not validated for empty strings yet
+- Some components need refactoring for greater clarity
+- Testing is still in the works
+
+## Possible Future Features
+- Total price of all items
+- Use webstorage to save the list between sessions
+- Add an optional location field for an item
+
+## Installing and Running
 
 In the project directory, you can run:
 
+### `npm install`
+
+and then
+
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.
+To run the app. You can then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm run build`
 
