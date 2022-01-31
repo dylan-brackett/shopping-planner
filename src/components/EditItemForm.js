@@ -94,7 +94,7 @@ export default function EditItemForm({
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
               editItem(itemName, price, qty, false, itemId);
