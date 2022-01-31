@@ -86,7 +86,7 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            className="shadow bg-green-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
               const myId = nanoid();
