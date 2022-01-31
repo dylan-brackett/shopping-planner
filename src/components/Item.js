@@ -11,6 +11,8 @@ export default function Item({
   id,
   toggleItemComplete,
   deleteItem,
+  toggleEditModal,
+  setActiveItemId,
 }) {
   return (
     <div
@@ -36,15 +38,20 @@ export default function Item({
       <div>
         <button
           onClick={() => {
+            toggleEditModal();
+            setActiveItemId(id);
+          }}
+        >
+          <FontAwesomeIcon icon={faEdit} />
+        </button>
+      </div>
+      <div>
+        <button
+          onClick={() => {
             deleteItem(id);
           }}
         >
           <FontAwesomeIcon icon={faTrash} />
-        </button>
-      </div>
-      <div>
-        <button>
-          <FontAwesomeIcon icon={faEdit} />
         </button>
       </div>
     </div>
