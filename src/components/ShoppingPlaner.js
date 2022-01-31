@@ -61,7 +61,7 @@ export default function ShoppingPlanner() {
   }
 
   return (
-    <div className="pt-8">
+    <div className="py-8">
       <div className="max-w-xl mx-auto bg-white rounded-lg p-10 shadow-xl">
         <AddItemForm addItem={addItem} />
         <div className="border-b-4 border-slate-800 my-8" />

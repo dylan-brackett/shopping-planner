@@ -4,9 +4,9 @@ import ShoppingPlanner from "./components/ShoppingPlaner";
 
 export default function App() {
   return (
-    <div>
+    <div className="min-h-screen max-h-full bg-gradient-to-b from-green-500 to-green-300">
       <Header />
-      <div className="bg-gradient-to-b from-green-500 to-green-300 h-screen">
+      <div className="w-full ">
         <ShoppingPlanner />
       </div>
     </div>
