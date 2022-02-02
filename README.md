@@ -4,6 +4,8 @@ With this app you can plan out the items you need to get, how much they cost, an
 
 This app was built using React and Tailwind CSS.
 
+### [View Live Here](https://dylan-brackett.github.io/shopping-planner/)
+
 ## Features
 - Add items to your shopping list, including the quantity and the price of the item
 - Delete items
