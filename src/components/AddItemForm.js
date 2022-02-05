@@ -23,12 +23,12 @@ export default function AddItemForm({ addItem }) {
   }
 
   return (
-    <form className="w-full max-w-sm">
+    <form role="form" className="w-full max-w-sm">
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-1/3">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            htmlFor="item-name"
+            htmlFor="itemName"
           >
             Item Name
           </label>
@@ -36,7 +36,8 @@ export default function AddItemForm({ addItem }) {
         <div className="md:w-2/3">
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
-            id="item-name"
+            id="itemName"
+            name="itemName"
             type="text"
             value={itemTitle}
             onChange={onItemNameChange}
@@ -57,6 +58,7 @@ export default function AddItemForm({ addItem }) {
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="qty"
+            name="qty"
             type="number"
             value={itemQty}
             onChange={onQtyChange}
@@ -77,6 +79,7 @@ export default function AddItemForm({ addItem }) {
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="price"
+            name="price"
             value={itemPrice}
             onChange={onPriceChange}
             type="number"
@@ -92,6 +95,8 @@ export default function AddItemForm({ addItem }) {
           <button
             className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline text-white font-bold py-2 px-4 rounded"
             type="button"
+            id="addBtn"
+            name="addBtn"
             onClick={() => {
               /**
                * Add item in the fields to the listItems in ShoppingPlanner

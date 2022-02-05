@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Item from "../../components/Item";
 import AddItemForm from "../../components/AddItemForm";
 
 it("Renders the AddItemForm", () => {
