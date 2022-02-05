@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
+/**
+ * @typedef {import("./ShoppingPlaner.js").Item} Item
+ */
+
 export default function AddItemForm({ addItem }) {
-  const [price, setPrice] = useState("");
-  const [qty, setQty] = useState("");
-  const [itemName, setItemName] = useState("");
+  const [itemPrice, setItemPrice] = useState(0);
+  const [itemQty, setItemQty] = useState(0);
+  const [itemTitle, setItemTitle] = useState("");
 
   function onPriceChange(e) {
-    setPrice(e.target.value);
+    setItemPrice(e.target.value);
   }
 
   function onQtyChange(e) {
-    setQty(e.target.value);
+    setItemQty(e.target.value);
   }
 
   function onItemNameChange(e) {
-    setItemName(e.target.value);
+    setItemTitle(e.target.value);
   }
 
   return (
@@ -34,7 +38,7 @@ export default function AddItemForm({ addItem }) {
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="item-name"
             type="text"
-            value={itemName}
+            value={itemTitle}
             onChange={onItemNameChange}
             placeholder="Carrots"
           />
@@ -54,7 +58,7 @@ export default function AddItemForm({ addItem }) {
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="qty"
             type="number"
-            value={qty}
+            value={itemQty}
             onChange={onQtyChange}
             placeholder="10"
           />
@@ -73,7 +77,7 @@ export default function AddItemForm({ addItem }) {
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="price"
-            value={price}
+            value={itemPrice}
             onChange={onPriceChange}
             type="number"
             min="0.00"
@@ -89,12 +93,33 @@ export default function AddItemForm({ addItem }) {
             className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
-              const myId = nanoid();
-              console.log(myId);
-              addItem(itemName, price, qty, false, myId);
-              setItemName("");
-              setPrice("");
-              setQty("");
+              /**
+               * Add item in the fields to the listItems in ShoppingPlanner
+               */
+
+              /**
+               * @type {string}
+               */
+              const newId = nanoid();
+
+              /**
+               * @type {Item}
+               */
+              let newItem = {
+                title: itemTitle,
+                price: itemPrice,
+                quantity: itemQty,
+                completed: false,
+                id: newId,
+              };
+              addItem(newItem);
+
+              /**
+               * Clear form fields
+               */
+              setItemTitle("");
+              setItemPrice("");
+              setItemQty("");
             }}
           >
             Add Item

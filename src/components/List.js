@@ -5,10 +5,10 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 export default function List({
   listItems,
+  setActiveItemId,
   toggleItemComplete,
   deleteItem,
   toggleEditModal,
-  setActiveItemId,
 }) {
   return (
     <div>
@@ -16,6 +16,7 @@ export default function List({
         return (
           <div
             id={item.id}
+            key={item.id}
             className={`flex justify-center items-center gap-3 p-4 border-b-2 border-slate-700 ${
               item.completed ? "itemCompleted bg-slate-200" : ""
             }`}
@@ -38,8 +39,8 @@ export default function List({
             <div>
               <button
                 onClick={() => {
-                  toggleEditModal();
                   setActiveItemId(item.id);
+                  toggleEditModal();
                 }}
               >
                 <FontAwesomeIcon icon={faEdit} />

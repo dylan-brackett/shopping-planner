@@ -1,29 +1,33 @@
 import React, { useState } from "react";
-import { nanoid } from "nanoid";
+
+/**
+ * @typedef {import("./ShoppingPlaner.js").Item} Item
+ */
 
 export default function EditItemForm({
-  editItem,
+  editActiveItem,
   toggleEditModal,
-  itemTitle,
-  itemPrice,
-  itemQuantity,
-  itemCompleted,
-  itemId,
+  getActiveItem,
 }) {
-  const [price, setPrice] = useState(itemPrice);
-  const [qty, setQty] = useState(itemQuantity);
-  const [itemName, setItemName] = useState(itemTitle);
+  /**
+   * @type {Item}
+   */
+  const curItem = getActiveItem();
 
-  function onPriceChange(e) {
-    setPrice(e.target.value);
+  const [newItemPrice, setNewItemPrice] = useState(curItem.price);
+  const [newItemQty, setNewItemQty] = useState(curItem.quantity);
+  const [newItemTitle, setNewItemTitle] = useState(curItem.title);
+
+  function onNewItemPriceChange(e) {
+    setNewItemPrice(e.target.value);
   }
 
-  function onQtyChange(e) {
-    setQty(e.target.value);
+  function onNewItemQtyChange(e) {
+    setNewItemQty(e.target.value);
   }
 
-  function onItemNameChange(e) {
-    setItemName(e.target.value);
+  function onNewItemTitleChange(e) {
+    setNewItemTitle(e.target.value);
   }
 
   return (
@@ -42,8 +46,8 @@ export default function EditItemForm({
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="item-name"
             type="text"
-            value={itemName}
-            onChange={onItemNameChange}
+            value={newItemTitle}
+            onChange={onNewItemTitleChange}
             placeholder="Carrots"
           />
         </div>
@@ -62,8 +66,8 @@ export default function EditItemForm({
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="qty"
             type="number"
-            value={qty}
-            onChange={onQtyChange}
+            value={newItemQty}
+            onChange={onNewItemQtyChange}
             placeholder="10"
           />
         </div>
@@ -81,8 +85,8 @@ export default function EditItemForm({
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500"
             id="price"
-            value={price}
-            onChange={onPriceChange}
+            value={newItemPrice}
+            onChange={onNewItemPriceChange}
             type="number"
             min="0.00"
             step="0.01"
@@ -97,10 +101,25 @@ export default function EditItemForm({
             className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline text-white font-bold py-2 px-4 rounded"
             type="button"
             onClick={() => {
-              editItem(itemName, price, qty, false, itemId);
-              setItemName("");
-              setPrice("");
-              setQty("");
+              /**
+               * @type {Item}
+               */
+              const newItem = {
+                title: newItemTitle,
+                price: newItemPrice,
+                quantity: newItemQty,
+                completed: curItem.completed,
+                id: curItem.id,
+              };
+
+              editActiveItem(newItem);
+
+              /**
+               * Clear form fields and close modal
+               */
+              setNewItemTitle("");
+              setNewItemPrice("");
+              setNewItemQty("");
               toggleEditModal();
             }}
           >

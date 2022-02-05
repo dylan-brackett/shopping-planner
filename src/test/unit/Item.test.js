@@ -1,11 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Item from "../components/Item";
+import Item from "../../components/Item";
 
 it("Renders an item", () => {
   const testItem = {
     title: "Carrots",
-    price: 1,
+    price: "1.00",
     quantity: 100,
     completed: false,
     id: "1",
@@ -21,4 +21,5 @@ it("Renders an item", () => {
   );
   expect(screen.getByText(/Carrots/i)).toBeTruthy();
   expect(screen.getByText(/Qty: 100/i)).toBeTruthy();
+  expect(screen.getByText(/\$1.00/i)).toBeTruthy();
 });
