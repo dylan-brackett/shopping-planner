@@ -23,7 +23,7 @@ export default function AddItemForm({ addItem }) {
   }
 
   return (
-    <form role="form" className="w-full max-w-sm">
+    <form data-testid="addForm" className="w-full max-w-sm">
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-1/3">
           <label

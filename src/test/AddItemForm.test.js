@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import AddItemForm from "../../components/AddItemForm";
+import AddItemForm from "../components/AddItemForm";
 
 it("Renders the AddItemForm", () => {
   render(<AddItemForm />);

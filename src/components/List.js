@@ -17,6 +17,7 @@ export default function List({
           <div
             id={item.id}
             key={item.id}
+            data-testid="itemDiv"
             className={`flex justify-center items-center gap-3 p-4 border-b-2 border-slate-700 ${
               item.completed ? "itemCompleted bg-slate-200" : ""
             }`}
@@ -24,6 +25,7 @@ export default function List({
             <div className=" flex justify-center items-center">
               <input
                 className="h-6 w-6"
+                data-testid="completeCheck"
                 onChange={() => {
                   toggleItemComplete(item.id);
                 }}
@@ -48,6 +50,7 @@ export default function List({
             </div>
             <div>
               <button
+                data-testid="deleteBtn"
                 onClick={() => {
                   deleteItem(item.id);
                 }}
