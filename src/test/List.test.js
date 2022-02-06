@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import List from "../components/List";
 
-it("Renders an item", () => {
+it("Renders an item list", () => {
   const testItem = [
     {
       title: "Carrots",

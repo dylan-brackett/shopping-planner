@@ -3,6 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * @typedef {import("./ShoppingPlanner.js").Item} Item
+ */
+
+/**
+ * List component for showing the list of current shopping items
+ *
+ * @param {Object} obj
+ * @param {Item[]} obj.listItems
+ * @param {function} obj.setActiveItemId
+ * @param {function} obj.toggleItemComplete
+ * @param {function} obj.deleteItem
+ * @param {function} obj.toggleEditModal
+ *
+ * @returns <List />
+ */
 export default function List({
   listItems,
   setActiveItemId,

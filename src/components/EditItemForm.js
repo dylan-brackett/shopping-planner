@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 /**
- * @typedef {import("./ShoppingPlaner.js").Item} Item
+ * @typedef {import("./ShoppingPlanner.js").Item} Item
  */
 
 export default function EditItemForm({

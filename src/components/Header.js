@@ -4,7 +4,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
   return (
-    <header>
+    <header data-testid="header">
       <nav className="w-full bg-zinc-50 shadow shadow-gray-600 flex py-4 justify-between items-center">
         <h1 className="pl-5 text-3xl">ShopPlan</h1>
         <a

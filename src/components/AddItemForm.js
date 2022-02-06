@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
 /**
- * @typedef {import("./ShoppingPlaner.js").Item} Item
+ * @typedef {import("./ShoppingPlanner.js").Item} Item
  */
 
 export default function AddItemForm({ addItem }) {

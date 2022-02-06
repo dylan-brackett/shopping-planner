@@ -106,7 +106,7 @@ export default function ShoppingPlanner() {
   useEffect(() => {}, [modalIsOpen]);
 
   return (
-    <div className="py-8">
+    <div data-testid="shoppingPlanner" className="py-8">
       <div className="max-w-xl mx-auto bg-white rounded-lg p-10 shadow-xl">
         <AddItemForm addItem={addItem} />
         <div className="border-b-4 border-slate-800 my-8" />

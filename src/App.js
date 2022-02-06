@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import ShoppingPlanner from "./components/ShoppingPlaner";
+import ShoppingPlanner from "./components/ShoppingPlanner";
 
 export default function App() {
   return (
