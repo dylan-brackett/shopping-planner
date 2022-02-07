@@ -8,7 +8,6 @@ With this app you can plan out the items you need to get, how much they cost, an
 
 This app was built using React and styled with Tailwind CSS. This app is documented following the JSDoc style, and is tested using testing-library and Jest. This app's repository currently utilizes Travis CI to test with Continuous Integration/Continuous Development (CI/CD). Nanoid was used to create unique identifiers for the items held within the shopping list.
 
-
 ## Features
 - Add items to your shopping list, including the quantity and the price of the item
 - Delete items
@@ -16,7 +15,7 @@ This app was built using React and styled with Tailwind CSS. This app is documen
 - Responsive, so this app will run on both desktop and mobile
 
 ## Known Issues
-- Form inputs are not validated for empty strings yet
+- Price not automatically adding price decimals
 
 ## Possible Future Features
 - Total price of all items
