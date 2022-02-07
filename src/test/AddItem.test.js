@@ -1,5 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  queryByTestId,
+  getByTestId,
+} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ShoppingPlanner from "../components/ShoppingPlanner";
 
@@ -96,6 +102,14 @@ describe("Adding items", () => {
 
     expect(screen.getByText(/Soap/i)).toBeTruthy();
     expect(screen.getByText(/Qty: 3/i)).toBeTruthy();
-    expect(screen.getByText(/\$10.55/i)).toBeTruthy();
+    expect(screen.getByText(/\$10\.55/i)).toBeTruthy();
+  });
+
+  it("Won't add an empty item", () => {
+    render(<ShoppingPlanner />);
+    fireEvent.click(screen.getByText(/Add Item/i));
+
+    expect(screen.queryByTestId("editBtn")).toBeFalsy();
+    expect(screen.queryByTestId("deleteBtn")).toBeFalsy();
   });
 });

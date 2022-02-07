@@ -30,8 +30,40 @@ export default function EditItemForm({
     setNewItemTitle(e.target.value);
   }
 
+  function handleEditItem() {
+    if (
+      newItemTitle === "" ||
+      newItemTitle === " " ||
+      !newItemQty ||
+      !newItemPrice
+    ) {
+      return -1;
+    }
+
+    /**
+     * @type {Item}
+     */
+    const newItem = {
+      title: newItemTitle,
+      price: newItemPrice,
+      quantity: newItemQty,
+      completed: curItem.completed,
+      id: curItem.id,
+    };
+
+    editActiveItem(newItem);
+
+    /**
+     * Clear form fields and close modal
+     */
+    setNewItemTitle("");
+    setNewItemPrice("");
+    setNewItemQty("");
+    toggleEditModal();
+  }
+
   return (
-    <form className="w-full max-w-sm">
+    <form data-testid="editForm" className="w-full max-w-sm">
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-1/3">
           <label
@@ -106,26 +138,7 @@ export default function EditItemForm({
             id="editBtn"
             name="editBtn"
             onClick={() => {
-              /**
-               * @type {Item}
-               */
-              const newItem = {
-                title: newItemTitle,
-                price: newItemPrice,
-                quantity: newItemQty,
-                completed: curItem.completed,
-                id: curItem.id,
-              };
-
-              editActiveItem(newItem);
-
-              /**
-               * Clear form fields and close modal
-               */
-              setNewItemTitle("");
-              setNewItemPrice("");
-              setNewItemQty("");
-              toggleEditModal();
+              handleEditItem();
             }}
           >
             Update Item

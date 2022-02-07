@@ -19,7 +19,7 @@ it("Completes an item in the list", () => {
 
   expect(screen.getByText(/Pasta/i)).toBeTruthy();
   expect(screen.getByText(/Qty: 1/i)).toBeTruthy();
-  expect(screen.getByText(/\$0.55/i)).toBeTruthy();
+  expect(screen.getByText(/\$0\.55/i)).toBeTruthy();
 
   expect(screen.queryByTestId("completeCheck").checked).toBeFalsy();
 

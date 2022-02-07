@@ -22,6 +22,36 @@ export default function AddItemForm({ addItem }) {
     setItemTitle(e.target.value);
   }
 
+  function handleAddItem() {
+    if (itemTitle === "" || itemTitle === " " || !itemQty || !itemPrice) {
+      return -1;
+    }
+
+    /**
+     * @type {string}
+     */
+    const newId = nanoid();
+
+    /**
+     * @type {Item}
+     */
+    let newItem = {
+      title: itemTitle,
+      price: itemPrice,
+      quantity: itemQty,
+      completed: false,
+      id: newId,
+    };
+    addItem(newItem);
+
+    /**
+     * Clear form fields
+     */
+    setItemTitle("");
+    setItemPrice("");
+    setItemQty("");
+  }
+
   return (
     <form data-testid="addForm" className="w-full max-w-sm">
       <div className="md:flex md:items-center mb-6">
@@ -101,30 +131,7 @@ export default function AddItemForm({ addItem }) {
               /**
                * Add item in the fields to the listItems in ShoppingPlanner
                */
-
-              /**
-               * @type {string}
-               */
-              const newId = nanoid();
-
-              /**
-               * @type {Item}
-               */
-              let newItem = {
-                title: itemTitle,
-                price: itemPrice,
-                quantity: itemQty,
-                completed: false,
-                id: newId,
-              };
-              addItem(newItem);
-
-              /**
-               * Clear form fields
-               */
-              setItemTitle("");
-              setItemPrice("");
-              setItemQty("");
+              handleAddItem();
             }}
           >
             Add Item

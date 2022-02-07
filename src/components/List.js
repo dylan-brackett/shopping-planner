@@ -56,6 +56,7 @@ export default function List({
             <div className="text-2xl font-semibold mx-3">${item.price}</div>
             <div>
               <button
+                data-testid="editBtn"
                 onClick={() => {
                   setActiveItemId(item.id);
                   toggleEditModal();
